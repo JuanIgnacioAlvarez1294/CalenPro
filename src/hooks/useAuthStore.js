@@ -16,7 +16,6 @@ export const useAuthStore = () => {
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
         } catch (error) {
-            console.error('Login error:', error);
             dispatch( onLogout('Credenciales incorrectas'));
             setTimeout(() => {
                 dispatch( clearErrorMessage() );
@@ -50,7 +49,6 @@ export const useAuthStore = () => {
             localStorage.setItem('token-init-date', new Date().getTime() );
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
         } catch (error) {
-            console.error('checkAuthToken error:', error);
             localStorage.clear();
             dispatch( onLogout() );
         }
